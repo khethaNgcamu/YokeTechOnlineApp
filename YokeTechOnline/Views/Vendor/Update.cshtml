@@ -1,0 +1,43 @@
+﻿@model YokeTechOnline.Models.Domain.Vendor
+
+<div class="container pt-3">
+    <div class="row">
+        <div class="col-md-6">
+            <h3>Update Vendor</h3>
+            <form asp-action="Update" method="post">
+                <div class="form-group">
+                    <input type="hidden" asp-for="Id" class="form-control" />
+                    <label asp-for="CompanyName" class="form-label"></label>
+                    <input type="text" asp-for="CompanyName" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="ContactPerson" class="form-label"></label>
+                    <input type="text" asp-for="ContactPerson" class="form-control" />
+                    <span asp-validation-for="ContactPerson" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Address" class="form-label"></label>
+                    <input type="text" asp-for="Address" class="form-control" />
+                    <span asp-validation-for="Address" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="phone" class="form-label"></label>
+                    <input type="text" asp-for="phone" class="form-control" />
+                    <span asp-validation-for="phone" class="text-danger"></span>
+                </div>
+                @if (TempData["msg"] != null)
+                {
+                    <div class="form-group">
+                        @TempData["msg"]
+                    </div>
+                }
+                <div class="form-group">
+                    <button type="submit" class="btn btn-dark">Update</button>
+                    <a asp-action="Index" class="btn btn-primary">Back To List</a>
+                </div>
+            </form>
+        </div>
+         
+         
+    </div>
+</div>

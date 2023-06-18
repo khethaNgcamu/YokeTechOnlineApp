@@ -1,0 +1,48 @@
+﻿@model YokeTechOnline.Models.Domain.Invoice
+
+
+<div class="container" pt-3>
+  <div class="row">
+    <div class="col col-md-6">
+        <h3>Create Invoice</h3>
+        <form asp-action="Add" method="post">
+            <div class="form-group">
+                <input type="hidden" asp-for="Id" class=" form-control"/>
+                <label asp-for="InvoiceDate"> Invoice Date</label>
+                <input type="DateTime" asp-for="InvoiceDate" readonly class=" form-control"/>
+            </div>
+            
+            <div class="form-group">
+                <label asp-for="CustomerId"></label>
+                <input type="number" asp-for="CustomerId" class=" form-control"/>
+                <span asp-validation-for="CustomerId" class="text-danger"></span>
+            </div>
+             @* <div class="form-group">
+                <label asp-for="Customer.FirstName">First Name</label>
+                <input type="text" asp-for="Customer.FirstName" class=" form-control"/>
+                <span asp-validation-for="Customer.FirstName" class="text-danger"></span>
+            </div>
+              <div class="form-group">
+                <label asp-for="Customer.LastName">Last Name</label>
+                <input type="text" asp-for="Customer.LastName" class=" form-control"/>
+                <span asp-validation-for="Customer.LastName" class="text-danger"></span>
+            </div>*@
+             
+                @if (TempData["msg"] != null)
+                {
+                    <div class="form-group">
+                        @TempData["msg"]
+                    </div>
+                }
+
+            <div class="form-group pt-3">
+                <button type="submit" class="btn btn-dark">Save</button>
+                <a asp-controller="Invoice" asp-action="GetAll" class="btn btn-primary">List</a>
+            </div>
+
+        </form>
+    </div>
+  </div>
+
+
+</div>

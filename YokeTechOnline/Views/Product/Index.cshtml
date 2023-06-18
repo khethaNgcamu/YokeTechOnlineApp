@@ -1,0 +1,47 @@
+﻿@model IEnumerable<YokeTechOnline.Models.Domain.Product>
+
+<div class="container pt-3" >
+    <div class="row">
+        <div claa="col-md-6" >
+         <a class="btn btn-dark pb-3" asp-action="Add">Add More</a>
+         <h3>Products</h3>
+        <table class="table table-striped table-bordered table-dark pt-3">
+            <thead>
+                <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Price</th>
+                        <th>Discount</th>
+                        <th>In date</th>
+                        <th>QOH</th>
+                        <th>Vendor Name</th>
+                        <th>Action</th>
+                </tr>
+               
+            </thead>
+            <tbody>
+                    @foreach(var item in Model)
+                    {
+                        <tr>
+                            <td>@item.Id</td>
+                            <td>@item.Name</td>
+                            <td>@item.Description</td>
+                            <td>@item.Price</td>
+                            <td>@item.Discount</td>
+                            <td>@item.InDate</td>
+                            <td>@item.QOH</td>
+                            <td>@item.VendorId</td>
+                            <td>
+                                <a class="btn btn-success" asp-action="Update" asp-route-id="@item.Id">Edit</a>
+                                <a class="btn btn-danger" onclick="return window.confirm('Are you sure?')" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                            </td>
+                        </tr>
+                       
+                      
+                    }
+                </tbody>
+        </table>
+        </div>
+    </div>
+</div>
